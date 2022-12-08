@@ -19,6 +19,8 @@ sudo yum-config-manager \
 sudo yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin   
 curl -L https://github.com/docker/compose/releases/download/$VERSION/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+sudo systemctl start docker
+sudo systemctl enable docker
 ```
 
 Test the setup :
@@ -33,7 +35,7 @@ To add regular user to docker group use
 sudo usermod -aG docker $USER
 ```  
 
-Reboot the system and test the setup  
+logout from the user, login back and test the setup  
 
 ```
 docker run hello-world 
